@@ -4,7 +4,7 @@
 
 
 
-![network](figure\network.png)
+![network](./figure/network.png)
 
 
 
