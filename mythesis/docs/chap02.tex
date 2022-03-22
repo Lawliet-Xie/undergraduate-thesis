@@ -1,0 +1,19 @@
+\chapter{相关工作}
+
+\label{cha:related work}
+
+
+\section{基于无监督域自适应的医学图像分割}
+最近，UDA方法已广泛应用在医学图像领域的研究中。现有的UDA方法通常从三个角度对齐源域和目标域的分布。第一类是特征自适应，通常是为了提取域不变特征，最小化域之间的特征分布差异。第二类是图像自适应，通过基于生成对抗网络的图像到图像转换实现跨域图像外观和风格的转变。第三类关注的是二者的结合。
+\subsection{特征自适应}
+传统的UDA方法大多通过距离度量来显式地减小源域和目标域的特征空间的分布差异。其中，MMD\cite{long2017deep}是一种常用的距离度量。相应的一些扩展利用了特征分布的一些统计量，如协方差\cite{sun2016deep}，特征函数\cite{wu2020cf}来进行特征对齐。但由于用于图像分割的特征空间应该包括各种视觉线索，如外观，可能过于复杂和高维，显式的距离度量如KL散度，Wasserstein距离在考虑批量数据的情况下通常没有解析式，而使用其他的一些度量如MMD，减小分布差异效果不明显，而CFD\cite{wu2020cf}在高维数据空间进行反向梯度传播会造成不可忽视的误差\cite{wu2021unsupervised}。因此，另外一种主流的用于图像分割的域自适应方法是对抗学习，一些工作通过对抗学习隐式地对齐特征空间，从而学习到域不变的特征表示。对于存在严重域位移问题的跨模态分割，\citeauthor{dou2018pnp}\cite{dou2018pnp}通过微调具体的特征层并对监督特征采用对抗损失学习。\citeauthor{tsai2018learning}\cite{tsai2018learning}过对齐输出空间来整合空间和几何结构信息。\citeauthor{wang2019boundary}\cite{wang2019boundary}提出了一种方法对眼底图像的熵和边界进行对抗自适应。\citeauthor{vesal2021adapt}\cite{vesal2021adapt}通过对齐点云来对齐形状特征。
+
+\subsection{图像自适应}
+近年来一些图像到图像转换的方法如CycleGAN\cite{zhu2017unpaired}利用生成对抗网络来把源域的图像转换为与目标域风格类似的图像。然后，这些生成的图像继承了源域图像的分割图，可以用于目标域分割网络的监督学习。\citeauthor{zhang2018translating}\cite{zhang2018translating}利用循环和形状一致性对抗网络进行多模态大脑MRI分割。在\citeauthor{liu2019unpaired}\cite{liu2019unpaired}中，作者结合基于注意力的神经网络生成目标域图像。\citeauthor{yang2019unsupervised}\cite{yang2019unsupervised}启发于解耦表示的思想，训练变分自编码器将图像模态特征和内容特征进行解耦，从而用来生成不同域的图像。
+
+\subsection{特征和图像自适应}
+近年来，一些研究提出将特征自适应和图像自适应结合起来，能更好地减轻域位移的影响\cite{hoffman2018cycada,chen2019synergistic}。CyCADA\cite{hoffman2018cycada}将UDA作为一种风格迁移方法减小源域和目标域之间的外观差距，同时独立地对齐两个域的潜在特征空间。\citeauthor{chen2019synergistic}\cite{chen2019synergistic}提出了SIFA框架，不同于\cite{hoffman2018cycada}，其协同利用特征自适应和图像自适应成统一的网络，从互补的角度来对齐心脏图像MRI和CT两种模态的分布。他们还扩展SIFA为Bidirectional-SIFA\cite{chen2020unsupervised}，添加深度监督特征的对齐，以及从双向的角度（MRI$\leftrightarrow$ CT）来探索领域自适应在多模态医学图像分割的应用。\citeauthor{han2021deep}\cite{han2021deep}提出了一个对称结构的域自适应网络。\citeauthor{tomar2021self}\cite{tomar2021self}利用自注意空间自适应标准化的结构来使得网络关注医学图像中具有解剖学意义的区域。\citeauthor{ye2021unsupervised}\cite{ye2021unsupervised}利用对比学习和原型相似度比较来显式地对齐源域和生成图像的特征。
+
+\section{解耦表示学习}
+对图像特征进行解耦已广泛应用于图像转换和风格迁移等计算机视觉应用任务中\cite{DRIT, DRIT_plus}。InfoGAN\cite{chen2016infogan}将特征解耦成可解释的潜变量与噪声，同时最大化生成数据与潜变量之间的互信息，使得生成数据与潜变量更相关。\citeauthor{yang2019unsupervised}\cite{yang2019unsupervised}通过训练变分自编码器将图像特征进行解耦，得到8维的风格特征以及高维表示的内容特征，利用自适应实例归一化（Adaptive Instance Normalization，AdaIN）和风格特征对内容特征进行仿射变换，进而实现不同域之间图像的风格迁移。最近的研究也开始将解耦表示学习用于医学影像分析当中\cite{chartsias2019disentangled,chen2019robust,pei2021disentangle}。\citeauthor{pei2021disentangle}\cite{pei2021disentangle}利用自注意力机制和归零损失函数来进一步对医学图像特征进行解耦，进而完成跨模态的医学图像分割。
+

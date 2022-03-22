@@ -1,0 +1,29 @@
+\chapter{相关损失函数公式}
+
+\section{交叉熵公式}
+交叉熵用于衡量两个概率分布之间的差异，常用于分类问题，语义分割是像素级的一类分类问题。二元交叉熵公式定义为：
+\begin{align}
+    \mathcal{L}_{C E}(y, \hat{y})=-(y \log (\hat{y})+(1-y) \log (1-\hat{y})).
+\end{align}
+其中$\hat{y}$为预测值，$y$为真实值。
+而在语义分割中，不同语义的区域往往面积（体积）不一致，存在数据不平衡的问题，故常常使用平衡交叉熵（Balanced Cross-Entropy）：
+\begin{align}
+    \mathcal{H}(y, \hat{y})=-(\beta * y \log (\hat{y})+(1-\beta) *(1-y) \log (1-\hat{y})).
+\end{align}
+其中，$\beta=1-\frac{y}{H*W}$，$H$和$W$为图像的宽度和高度。
+\section{Dice损失}
+给定两个集合$A$和$B$，二者的Dice分数定义为：
+\begin{align}
+    \operatorname{Dice}(A,B)=\frac{2|A\cap B|}{|A| + |B|}.
+\end{align}
+其范围为$\left[0, 1\right]$，值越大表示两个集合重合度越高。
+
+\section{平均表面距离}
+对于3D物体的每个体素，如果在其18邻域范围内至少有一个像素不是物体，则认为该体素属于表面，依次遍历所有的体素便得到物体的表面。记两个3维图像的表面为$X$和$Y$，平均表面距离（Average Surface Distance）定义为：
+\begin{align}
+    \operatorname{ASD}(X,Y) = \frac{\sum_{x\in X} \min_{y\in Y}d(x,y)}{|X|}.
+\end{align}
+其中$d(\cdot,\cdot)$代表欧氏距离。
+
+
+\endinput
