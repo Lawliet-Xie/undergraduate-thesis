@@ -651,21 +651,21 @@
         \vspace{\baselineskip}
         }                                                                                  \\
 
-        % 第四次检查
-        \multicolumn{2}{|p{\textwidth}|} {
-        \textbf{第四次检查（Fourth Check-up）:}  \newline
-        \begin{adjustwidth}{2em}{2em}
-            学生总结 \newline
-            Student Self-Summary:
-        \end{adjustwidth}
-        \@fourthsummary
-        \begin{adjustwidth}{2em}{2em}
-            指导教师意见 \newline
-            Comments of Supervisor:
-        \end{adjustwidth}
-        \@fourthcomment
-        \vspace{\baselineskip}
-        }                                                                                  \\
+        % % 第四次检查
+        % \multicolumn{2}{|p{\textwidth}|} {
+        % \textbf{第四次检查（Fourth Check-up）:}  \newline
+        % \begin{adjustwidth}{2em}{2em}
+        %     学生总结 \newline
+        %     Student Self-Summary:
+        % \end{adjustwidth}
+        % \@fourthsummary
+        % \begin{adjustwidth}{2em}{2em}
+        %     指导教师意见 \newline
+        %     Comments of Supervisor:
+        % \end{adjustwidth}
+        % \@fourthcomment
+        % \vspace{\baselineskip}
+        % }                                                                                  \\
 
         % 结尾落款部分
         \multicolumn{2}{|p{\textwidth}|}{

@@ -19,20 +19,20 @@
 	\begin{block}{}
 		图像语义分割 (Semantic Image Segmentation) 是根据物体类别把图像分成若干个有意义的区域,并为不同的区域标注其所属标签的视觉任务。
 	\end{block}
-	\begin{figure}%文中的Grid-LSTM模型做的语义图像分割的例子
-		\centering
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_000799.jpg}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_002094.jpg}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_004483.jpg}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_003194.jpg}
-		\\
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_000799.pdf}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_002094.pdf}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_004483.pdf}
-		\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_003194.pdf}
-		\caption[语义图像分割的例子]{本文模型在VOC 2012验证集上的语义图像分割例子}
-		\label{fig:example1}
-	\end{figure}
+	% \begin{figure}%文中的Grid-LSTM模型做的语义图像分割的例子
+	% 	\centering
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_000799.jpg}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_002094.jpg}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_004483.jpg}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_003194.jpg}
+	% 	\\
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_000799.pdf}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_002094.pdf}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_004483.pdf}
+	% 	\includegraphics[width=.2\textwidth,height=.15\textwidth]{image/example/2007_003194.pdf}
+	% 	\caption[语义图像分割的例子]{本文模型在VOC 2012验证集上的语义图像分割例子}
+	% 	\label{fig:example1}
+	% \end{figure}
 }
 
 \frame{
@@ -68,29 +68,29 @@
 
 \frame{
 	\frametitle{主流方法中的代表性工作}
-	\begin{columns}[t]
-		\column{.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/FCN} \\
-		\makebox[0.5\textwidth]{\tiny a. 全卷积网络[Long et al, CVPR 2015]} \\
-		\includegraphics[width=\textwidth]{figures/zoom-out} \\
-		\makebox[0.5\textwidth]{\tiny c. 卷积网络+高低层次特征融合[Mostajabi et al, CVPR 2015]}
+	% \begin{columns}[t]
+	% 	\column{.5\textwidth}
+	% 	\centering
+	% 	\includegraphics[width=\textwidth]{figures/FCN} \\
+	% 	\makebox[0.5\textwidth]{\tiny a. 全卷积网络[Long et al, CVPR 2015]} \\
+	% 	\includegraphics[width=\textwidth]{figures/zoom-out} \\
+	% 	\makebox[0.5\textwidth]{\tiny c. 卷积网络+高低层次特征融合[Mostajabi et al, CVPR 2015]}
 
-		\column{.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figures/Deeplab} \\
-		\makebox[0.5\textwidth]{\tiny b. 全卷积网络+概率图模型[Chen et al, ICLR 2015]} \\
-		\vspace{0.8em}
-		\includegraphics[width=\textwidth]{figures/LSTM} \\
-		\makebox[0.5\textwidth]{\tiny d. 二维长短记忆网络[Byeon et al, CVPR, 2015]}
-	\end{columns}
+	% 	\column{.5\textwidth}
+	% 	\centering
+	% 	\includegraphics[width=\textwidth]{figures/Deeplab} \\
+	% 	\makebox[0.5\textwidth]{\tiny b. 全卷积网络+概率图模型[Chen et al, ICLR 2015]} \\
+	% 	\vspace{0.8em}
+	% 	\includegraphics[width=\textwidth]{figures/LSTM} \\
+	% 	\makebox[0.5\textwidth]{\tiny d. 二维长短记忆网络[Byeon et al, CVPR, 2015]}
+	% \end{columns}
 }
 \subsection*{本文的工作}
 \frame{
 	\vspace{-0.6em}
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=\textwidth]{image/illustration/networkstructure.pdf}
+		\includegraphics[width=\textwidth]{image/chap03/network structure.pdf}
 		\caption{网络整体结构图}
 	\end{figure}
 	\vspace{-1.2em}
